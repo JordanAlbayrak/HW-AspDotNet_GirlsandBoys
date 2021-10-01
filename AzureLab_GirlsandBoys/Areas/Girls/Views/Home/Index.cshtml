@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Girls";
 }
-
-<h1>Girls</h1>
-<h2>2</h2>
+<h1 class="display-4">@ViewBag.Greeting</h1>
+<h1>Girls: </h1><h2>2</h2>
 <p> There are only two girls in this class</p>
+@*This is the link to return to home, it goes to the default area*@
 <a asp-area="default" asp-controller="Home" asp-action="Index" class="btn-group-lg btn-link align-bottom">Go Back Home</a>
