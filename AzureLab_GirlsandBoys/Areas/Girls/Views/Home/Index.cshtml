@@ -1,9 +1,36 @@
-﻿
+﻿@model List<Tasks>
 @{
     ViewBag.Title = "Girls";
 }
 <h1 class="display-4">@ViewBag.Greeting</h1>
-<h1>Girls: </h1><h2>2</h2>
-<p> There are only two girls in this class</p>
+<h2>Number of Girls: 2</h2>
 @*This is the link to return to home, it goes to the default area*@
-<a asp-area="default" asp-controller="Home" asp-action="Index" class="btn-group-lg btn-link align-bottom">Go Back Home</a>
+
+<br />
+<br />
+<div>
+    <h3 class="text-center">Students Information </h3>
+    <br />
+    <table class="table"
+       <thead class="thead-dark">
+           <tr>
+               <th>Id</th>
+               <th>Description</th>
+               <th>Location</th>
+           </tr>
+       </thead>
+    <tbody>
+        @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Id |</td>
+                    <td>@task.Description</td>
+                    <td>| @task.Location</td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+</div>
+
+<a asp-area="default" asp-controller="Home" asp-action="Index" class="btn">Go Back Home</a>
