@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -7,6 +7,7 @@
       "sslPort": 44330
     }
   },
+  // Define the profiles for development and production environments
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
@@ -18,10 +19,10 @@
     "AzureLab_GirlsandBoys": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

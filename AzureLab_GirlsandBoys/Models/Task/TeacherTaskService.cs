@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace AzureLab_GirlsandBoys.Models.Task
 {
-    interface TeacherTaskService : ITaskService
+    public class TeacherTaskService : ITaskService
     {
+        //Adds didferent object instantions to a list called taskList, which will be returned upon calling GetTaks()
         public List<Tasks> GetTasks()
         {
             Tasks t1 = new Tasks("100A10", "Grading Scripts", "F-251");

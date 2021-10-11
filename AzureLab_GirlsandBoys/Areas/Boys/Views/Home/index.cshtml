@@ -6,6 +6,7 @@
 <h2>Number of Boys: 16</h2>
 @*This is the link to return to home, it goes to the default area*@
 
+@*This code creates a table with a foreach that loops through the properties of the task list*@
 <br />
 <br />
 <div>
@@ -14,12 +15,13 @@
     <table class="table"
        <thead class="thead-dark">
            <tr>
-               <th>Id</th>
+               <th>Id</th> 
                <th>Description</th>
                <th>Location</th>
            </tr>
        </thead>
     <tbody>
+        <!--Define a foreach to display the tasks in the index view-->
         @foreach (var task in Model)
             {
                 <tr>

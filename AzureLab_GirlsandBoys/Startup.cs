@@ -20,12 +20,12 @@ namespace AzureLab_GirlsandBoys
             //Configuration = configuration;
             _env = env;
         }
-
+        //Switching Services depending on the Environnement Variable
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
 
-            if (_env.IsProduction())
+            if (_env.IsDevelopment())
             {
                 services.AddTransient<ITaskService, TeacherTaskService>();
             }
@@ -37,6 +37,9 @@ namespace AzureLab_GirlsandBoys
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /**
+        * HERE, WE ARE DEFINING AND EXPOSING THE ENDPOINTS FOR THE AREAS(BOYS, GIRLS, AND TEACHERS)
+        */
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

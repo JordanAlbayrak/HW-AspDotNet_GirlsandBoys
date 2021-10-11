@@ -13,11 +13,12 @@ namespace AzureLab_GirlsandBoys.Areas.Teachers.Controllers
     {
         private readonly ITaskService _taskService;
 
-        //with the are defined this code is used to claim the correct route for the view page.
+        //With the area defined this code is used to claim the correct route for the view page.
         //It is going to be used by the default index to locate the correct view
         public HomeController(ITaskService taskService)
         {
             _taskService = taskService;
+           // Environment.SetEnvironmentVariable("Production", "Production");
         }
         [Route("[area]/[controller]/{id?}")]
         public IActionResult Index()

@@ -11,6 +11,7 @@ namespace AzureLab_GirlsandBoys.Areas.Girls.Controllers
     public class HomeController : Controller
     {
         private readonly ITaskService _taskService;
+        
 
         //with the are defined this code is used to claim the correct route for the view page.
         //It is going to be used by the default index to locate the correct view
