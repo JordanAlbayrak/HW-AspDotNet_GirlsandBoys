@@ -63,30 +63,33 @@ namespace AzureLab_GirlsandBoys
             {
                 //This endpoint is for the boys and redirects to the boys Area
                 //with the areaName and to the homeController/index and the only view available is index no idea needed
-                endpoints.MapAreaControllerRoute(
-                    name: "boys",
-                    areaName: "Boys",
-                    pattern: "Boys/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapAreaControllerRoute(
+                //    name: "boys",
+                //    areaName: "Boys",
+                //    pattern: "Boys/{controller=Home}/{action=Index}/{id?}");
 
-                //This endpoint is for the girls and redirects to the girls Area
-                //with the areaName and to the homeController/index and the only view available is index no idea needed
-                endpoints.MapAreaControllerRoute(
-                    name: "girls",
-                    areaName:"Girls",
-                    pattern: "Girls/{controller=Home}/{action=Index}/{id?}");
+                ////This endpoint is for the girls and redirects to the girls Area
+                ////with the areaName and to the homeController/index and the only view available is index no idea needed
+                //endpoints.MapAreaControllerRoute(
+                //    name: "girls",
+                //    areaName:"Girls",
+                //    pattern: "Girls/{controller=Home}/{action=Index}/{id?}");
 
-                //This endpoint is for the teachers and redirects to the teachers Area
-                //with the areaName and to the homeController/index and the only view available is index no idea needed
-                endpoints.MapAreaControllerRoute(
-                    name: "teachers",
-                    areaName: "Teachers",
-                    pattern: "Teachers/{controller=Home}/{action=Index}/{id?}");
+                ////This endpoint is for the teachers and redirects to the teachers Area
+                ////with the areaName and to the homeController/index and the only view available is index no idea needed
+                //endpoints.MapAreaControllerRoute(
+                //    name: "teachers",
+                //    areaName: "Teachers",
+                //    pattern: "Teachers/{controller=Home}/{action=Index}/{id?}");
 
                 //This endpoint is for the default area, it redirects to the home page.
+                endpoints.MapAreaControllerRoute(
+                    name: "default",
+                    areaName: "default",
+                    pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-               
             });
         }
     }
