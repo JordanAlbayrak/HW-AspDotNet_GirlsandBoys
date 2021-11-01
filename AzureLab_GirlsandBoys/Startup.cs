@@ -14,6 +14,13 @@ namespace AzureLab_GirlsandBoys
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         private IWebHostEnvironment _env;
         public Startup(IWebHostEnvironment env)
         {
@@ -33,7 +40,6 @@ namespace AzureLab_GirlsandBoys
             {
                 services.AddTransient<ITaskService, StudentTaskService>();
             }
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
