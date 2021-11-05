@@ -12,12 +12,12 @@ namespace AzureLab_GirlsandBoys.Models
 
         public string Location { get; set; }
 
-        public Tasks(string id, string desc, string loc)
-        {
-            Id = id;
-            Description = desc;
-            Location = loc;
-        }
+        //public Tasks(string id, string desc, string loc)
+        //{
+        //    Id = id;
+        //    Description = desc;
+        //    Location = loc;
+        //}
 
     }
 }
