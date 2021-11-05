@@ -8,38 +8,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AzureLab_GirlsandBoys.Models.Task;
+using Microsoft.EntityFrameworkCore;
+using AzureLab_GirlsandBoys.Data;
+
 
 namespace AzureLab_GirlsandBoys
 {
     public class Startup
     {
-        private IWebHostEnvironment _env;
-        public Startup(IWebHostEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            //Configuration = configuration;
-            _env = env;
+            Configuration = configuration;
         }
-        //Switching Services depending on the Environnement Variable
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
 
-            if (_env.IsDevelopment())
-            {
-                services.AddTransient<ITaskService, TeacherTaskService>();
-            }
-            else
-            {
-                services.AddTransient<ITaskService, StudentTaskService>();
-            }
+            services.AddDbContext<AzureLab_GirlsandBoysContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureLab_GirlsandBoysContext")));
+
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        /**
-        * HERE, WE ARE DEFINING AND EXPOSING THE ENDPOINTS FOR THE AREAS(BOYS, GIRLS, AND TEACHERS)
-        */
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -61,32 +56,16 @@ namespace AzureLab_GirlsandBoys
 
             app.UseEndpoints(endpoints =>
             {
-                //This endpoint is for the boys and redirects to the boys Area
-                //with the areaName and to the homeController/index and the only view available is index no idea needed
-                //endpoints.MapAreaControllerRoute(
-                //    name: "boys",
-                //    areaName: "Boys",
-                //    pattern: "Boys/{controller=Home}/{action=Index}/{id?}");
-
-                ////This endpoint is for the girls and redirects to the girls Area
-                ////with the areaName and to the homeController/index and the only view available is index no idea needed
-                //endpoints.MapAreaControllerRoute(
-                //    name: "girls",
-                //    areaName:"Girls",
-                //    pattern: "Girls/{controller=Home}/{action=Index}/{id?}");
-
-                ////This endpoint is for the teachers and redirects to the teachers Area
-                ////with the areaName and to the homeController/index and the only view available is index no idea needed
-                //endpoints.MapAreaControllerRoute(
-                //    name: "teachers",
-                //    areaName: "Teachers",
-                //    pattern: "Teachers/{controller=Home}/{action=Index}/{id?}");
-
-                //This endpoint is for the default area, it redirects to the home page.
                 endpoints.MapAreaControllerRoute(
-                    name: "default",
-                    areaName: "default",
-                    pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
+                    name: "teacher",
+                    areaName: "Teacher",
+                    pattern: "Teacher/{controller=TeacherTasks}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "student",
+                    areaName: "Student",
+                    pattern: "Student/{controller=StudentTasks}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
