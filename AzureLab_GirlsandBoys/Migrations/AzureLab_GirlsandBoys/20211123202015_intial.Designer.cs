@@ -3,18 +3,20 @@ using AzureLab_GirlsandBoys.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AzureLab_GirlsandBoys.Migrations
+namespace AzureLab_GirlsandBoys.Migrations.AzureLab_GirlsandBoys
 {
     [DbContext(typeof(AzureLab_GirlsandBoysContext))]
-    partial class AzureLab_GirlsandBoysContextModelSnapshot : ModelSnapshot
+    [Migration("20211123202015_intial")]
+    partial class intial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.20")
+                .HasAnnotation("ProductVersion", "3.1.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 

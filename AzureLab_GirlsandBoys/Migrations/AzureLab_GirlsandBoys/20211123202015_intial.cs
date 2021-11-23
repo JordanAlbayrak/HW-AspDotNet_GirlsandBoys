@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AzureLab_GirlsandBoys.Migrations
+namespace AzureLab_GirlsandBoys.Migrations.AzureLab_GirlsandBoys
 {
-    public partial class InitialContext : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
