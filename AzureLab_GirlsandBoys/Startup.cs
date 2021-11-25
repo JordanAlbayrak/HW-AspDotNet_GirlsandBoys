@@ -30,8 +30,8 @@ namespace AzureLab_GirlsandBoys
 
             services.AddDbContext<AzureLab_GirlsandBoysContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AzureLab_GirlsandBoysContext")));
-            services.AddDbContext<AuthContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AuthContext")));
+            //services.AddDbContext<AuthContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("AuthContext")));
 
 
         }
