@@ -1,15 +1,17 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using AzureLab_GirlsandBoys.Areas.Identity.Data
+
+@inject SignInManager<AzureLab_GirlsandBoysUser> SignInManager
+@inject UserManager<AzureLab_GirlsandBoysUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
-<!--
-     MAIN INDEX OF OUR APPLICATION
--->
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    @*These are links on the home page that link to each different view by using tag helpers.*@
-    <a asp-area="Student" asp-controller="StudentTasks" asp-action="Index" class="btn">Students</a>
-    <a asp-area = "Teacher" asp-controller = "TeacherTasks" asp-action = "Index" class="btn">Teachers</a>
-
+<a asp-area="Student" asp-controller="StudentTasks" asp-action="Index"  class="btn">Students</a>
+        <a asp-area="Teacher" asp-controller="TeacherTasks" asp-action="Index" class="btn">Teacher</a>
 </div>

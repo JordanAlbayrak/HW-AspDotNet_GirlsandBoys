@@ -24,6 +24,9 @@ namespace AzureLab_GirlsandBoys
                 {
                     var context = services.GetRequiredService<AzureLab_GirlsandBoysContext>(); //Get services from DB context and bind it to DB through migration
                     context.Database.Migrate(); // execute the migration code to create appropriate tables and columns according to context.
+
+                    var contextIdentity = services.GetRequiredService<AuthContext>(); //Get services from DB context and bind it to DB through migration
+                    contextIdentity.Database.Migrate(); // execute the migration code to create appropriate tables and columns according to context.
                 }
                 catch (Exception ex)
                 {
@@ -42,4 +45,3 @@ namespace AzureLab_GirlsandBoys
                 });
     }
 }
-

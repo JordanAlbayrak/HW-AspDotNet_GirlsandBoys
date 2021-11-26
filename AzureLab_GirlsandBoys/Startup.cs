@@ -30,6 +30,8 @@ namespace AzureLab_GirlsandBoys
 
             services.AddDbContext<AzureLab_GirlsandBoysContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AzureLab_GirlsandBoysContext")));
+            //services.AddDbContext<AuthContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("AuthContext")));
 
 
         }
@@ -52,6 +54,7 @@ namespace AzureLab_GirlsandBoys
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -69,6 +72,7 @@ namespace AzureLab_GirlsandBoys
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

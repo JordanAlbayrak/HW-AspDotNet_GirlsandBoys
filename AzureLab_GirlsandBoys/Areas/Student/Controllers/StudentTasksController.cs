@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AzureLab_GirlsandBoys.Data;
 using AzureLab_GirlsandBoys.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AzureLab_GirlsandBoys.Areas.Student.Controllers
 {
     [Area("Student")]
+    [Authorize]
     public class StudentTasksController : Controller
     {
         private readonly AzureLab_GirlsandBoysContext _context;
